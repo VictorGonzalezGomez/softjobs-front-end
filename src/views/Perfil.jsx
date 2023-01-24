@@ -16,6 +16,7 @@ export default function Home() {
       const { data } = await axios.get(urlServer + endpoint, {
         headers: { Authorization: "Bearer " + token },
       });
+      console.log("DATA-----",data)
       setUsuarioGlobal(data);
       setUsuarioLocal(data);
     } catch ({ response: { data: message } }) {
@@ -23,7 +24,7 @@ export default function Home() {
       console.log(message);
     }
   };
-
+  console.log("USUARIO", usuario);
   useEffect(() => {
     getUsuarioData();
   },[]);

@@ -22,8 +22,9 @@ export default function RegistroForm() {
     try {
       if (!email || !password) return alert("Email y password obligatorias");
       const { data: token } = await axios.post(urlServer + endpoint, usuario);
+      console.log("TOKEN",token.token)
       alert("Usuario identificado con éxito 😀");
-      localStorage.setItem("token", token);
+      localStorage.setItem("token", token.token);
       setUsuario()
       navigate("/perfil");
     } catch ({ response: { data: message } }) {
